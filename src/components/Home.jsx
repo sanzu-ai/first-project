@@ -3,10 +3,22 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
 const categories = [
-  { name: "Electronics", img: "https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?w=800" },
-  { name: "Fashion", img: "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=600&auto=format&fit=crop&q=60" },
-  { name: "Home", img: "https://images.unsplash.com/photo-1503602642458-232111445657?w=800" },
-  { name: "Beauty", img: "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=800" },
+  {
+    name: "Electronics",
+    img: "https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?w=800",
+  },
+  {
+    name: "Clothing",
+    img: "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=600&auto=format&fit=crop&q=60",
+  },
+  {
+    name: "Home & Kitchen",
+    img: "https://images.unsplash.com/photo-1503602642458-232111445657?w=800",
+  },
+  {
+    name: "Beauty",
+    img: "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=800",
+  },
 ];
 
 const Home = () => {
@@ -25,7 +37,8 @@ const Home = () => {
           </motion.h1>
 
           <p className="text-gray-600 text-lg">
-            Discover curated essentials, trending styles, and must-have deals—all in one place.
+            Discover curated essentials, trending styles, and must-have
+            deals—all in one place.
           </p>
 
           <div className="flex gap-4 mt-4">
@@ -57,8 +70,9 @@ const Home = () => {
         <h2 className="text-3xl font-bold mb-8">Shop by Category</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
           {categories.map((cat) => (
-            <div
+            <Link
               key={cat.name}
+              to={`/itempage?category=${encodeURIComponent(cat.name)}`}
               className="rounded-2xl shadow hover:shadow-xl cursor-pointer transition-all bg-white"
             >
               <img
@@ -67,7 +81,7 @@ const Home = () => {
                 className="rounded-t-2xl h-40 w-full object-cover"
               />
               <div className="p-4 font-semibold">{cat.name}</div>
-            </div>
+            </Link>
           ))}
         </div>
       </section>
